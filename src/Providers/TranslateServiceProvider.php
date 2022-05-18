@@ -2,6 +2,7 @@
 
 namespace Ibrhaim13\Translate\Providers;
 use Ibrhaim13\Translate\Translator;
+use Illuminate\Routing\Route;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 
 class TranslateServiceProvider extends BaseTranslationServiceProvider
@@ -33,13 +34,44 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../../config/config.php' => config_path('translate13.php'),
-            ], 'config');
-
-        }
+        $this->loadResources();
+        if ($this->app->runningInConsole())  $this->publish();
 
     }
+
+    /**
+     * @return void
+     */
+    public function publish(): void
+    {
+        $this->publishes([
+            __DIR__ . '/../../config/config.php' => config_path('translate13.php'),
+        ], 'config');
+    }
+
+    /**
+     * @return void
+     */
+    public function loadResources(): void
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->registerRoutes();
+    }
+
+    protected function registerRoutes()
+    {
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        });
+    }
+
+    protected function routeConfiguration()
+    {
+        return [
+            'prefix' => config('translate13.prefix'),
+            'middleware' => config('translate13.middleware'),
+        ];
+    }
+
 }

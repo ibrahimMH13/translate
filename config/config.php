@@ -6,4 +6,6 @@ return [
         'ar'=>'Arabic',
         'tr'=>'Turkey'
     ],
+    'prefix'=>'',
+    'middleware'=>'auth'
 ];
