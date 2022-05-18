@@ -3,7 +3,11 @@
     "description": "laravel translate package",
     "autoload": {
         "psr-4": {
-            "Ibrhaim13\\Translate\\": "src/"
+            "Ibrhaim13\\Translate\\": "src/",
+            "Ibrhaim13\\Translate\\Tests\\": "tests",
+            "Ibrhaim13\\Translate\\Database\\Factories\\": "database/factories"
+
+
         }
     },
     "authors": [
@@ -12,5 +16,11 @@
             "email": "i.musabah92@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {
+        "torann/geoip": "^3.0"
+    }
 }
