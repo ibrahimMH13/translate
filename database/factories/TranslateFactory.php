@@ -8,6 +8,12 @@ class TranslateFactory extends Factory
     protected $model = Translate::class;
     public function definition()
     {
-        // TODO: Implement definition() method.
+        $words = $this->faker->words(3, true);
+        return [
+            'key'           => str_replace('','_',$words),
+            'value'         => $words,
+            'language_code' => 'en',
+        ];
+
     }
 }
