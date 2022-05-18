@@ -1,6 +1,5 @@
 <?php
 namespace Ibrhaim13\Translate\Tests;
-use Ibrhaim13\Translate\database\migrations\TranslateTable;
 use Ibrhaim13\Translate\Providers\TranslateServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as BasicTestCase;
