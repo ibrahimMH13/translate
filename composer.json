@@ -1,0 +1,16 @@
+{
+    "name": "ibrhaim13/translate",
+    "description": "laravel translate package",
+    "autoload": {
+        "psr-4": {
+            "Ibrhaim13\\Translate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ibrahim I. I. Musabeh",
+            "email": "i.musabah92@gmail.com"
+        }
+    ],
+    "require": {}
+}
