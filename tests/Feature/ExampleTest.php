@@ -1,6 +1,6 @@
 <?php
 
-namespace Ibrhaim13\Translate\Tests\Unit;
+namespace Ibrhaim13\Translate\Tests\Feature;
 
 
 use Ibrhaim13\Translate\Tests\TestCase;
