@@ -15,7 +15,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function register()
     {
        $this->registerLoader();
-       $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'app');
+       $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'app');
         $this->app->singleton('translator',function ($app){
            $loader = $app['translation.loader'];
            $local = $app['config']['app.local'];
@@ -36,7 +36,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('translate13.php'),
+                __DIR__.'/../../config/config.php' => config_path('translate13.php'),
             ], 'config');
 
         }
