@@ -1,3 +1,4 @@
+<x-app-layout>
 <table class="table-auto">
     <thead>
     <tr>
@@ -11,7 +12,7 @@
     <tr>
         <td>{{$record->key}}</td>
         <td>{{$record->language_code}}</td>
-        <td>1961</td>
+        <td><a href="{{route('translate.edit',$record)}}">{{__('str_admin.edit')}}</a></td>
     </tr>
     </tbody>
     @empty
@@ -20,3 +21,4 @@
         </h2>
     @endforelse
 </table>
+</x-app-layout>
