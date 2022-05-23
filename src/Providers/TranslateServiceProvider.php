@@ -12,7 +12,14 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      *
      * @return void
      */
-
+    const MAP =[
+      'config'=>[
+          '/../../config/config.php'
+      ],
+      'views'=>[
+          '/../resources/views'
+      ]
+    ];
     public function register()
     {
        $this->registerLoader();
@@ -44,9 +51,16 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     public function publish(): void
     {
+        foreach (self::MAP as $type){
+            dd($type);
+            $this->publishes([
+                __DIR__ . '/../../config/config.php' => config_path('translate13.php'),
+            ], 'config');
+        }
+        // Publish views
         $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('translate13.php'),
-        ], 'config');
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/translate13'),
+        ], 'views');
     }
 
     /**
@@ -55,6 +69,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function loadResources(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'translate13');
         $this->registerRoutes();
     }
 
