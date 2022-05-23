@@ -18,7 +18,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     ];
 
     const PATH =[
-        'views/vendor/translate13',
+        'resources/views/vendor/translate13',
         '/../../config/config.php'
     ];
     public function register()
