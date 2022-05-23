@@ -6,6 +6,7 @@ return [
         'ar'=>'Arabic',
         'tr'=>'Turkey'
     ],
+    'locale_prefix'=>true,
     'prefix'=>'',
     'middleware'=>'auth'
 ];
