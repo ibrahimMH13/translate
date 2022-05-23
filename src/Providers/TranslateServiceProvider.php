@@ -43,7 +43,8 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function boot()
     {
         $this->loadResources();
-        if ($this->app->runningInConsole())  $this->publish();
+        if ($this->app->runningInConsole())
+            $this->publish();
 
     }
 

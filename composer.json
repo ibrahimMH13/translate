@@ -10,6 +10,13 @@
 
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                 "Ibrhaim13\\Translate\\Providers\\TranslateServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Ibrahim I. I. Musabeh",
