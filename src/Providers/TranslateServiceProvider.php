@@ -95,7 +95,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
 
     protected function routeConfiguration()
     {
-        $prefix = config('translate13.locale_prefix')?config('translate13.locale_prefix') .'/'.config('translate13.prefix'):config('translate13.prefix');
+        $prefix = config('translate13.locale_prefix')?app()->getLocale() .'/'.config('translate13.prefix'):config('translate13.prefix');
         return [
             'prefix' => $prefix,
             'middleware' => config('translate13.middleware'),
