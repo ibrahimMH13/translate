@@ -1,8 +1,10 @@
 <?php
 
 namespace Ibrhaim13\Translate\Providers;
+use App\Http\Middleware\Web\Localization;
 use Ibrhaim13\Translate\Translator;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Router;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 
 class TranslateServiceProvider extends BaseTranslationServiceProvider
@@ -43,6 +45,10 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function boot()
     {
         $this->loadResources();
+        $router = $this->app->make(Router::class);
+        $router->pushMiddlewareToGroup('web', Localization::class);
+        $router->pushMiddlewareToGroup('api', \App\Http\Middleware\Api\Localization::class);
+
         if ($this->app->runningInConsole())
             $this->publish();
 
