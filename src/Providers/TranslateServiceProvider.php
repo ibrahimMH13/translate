@@ -14,7 +14,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     const MAP =[
       'config'=>'translate13.php',
-      'views'=> 'views/vendor/translate13'
+      'views'=> 'views/vendor/translate13/'
     ];
 
     const PATH =[
@@ -53,12 +53,20 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     public function publish(): void
     {
-        foreach (self::MAP as $type =>$conf){
+/*        foreach (self::MAP as $type =>$conf){
             $configType = $this->getTypePath($type, $conf);
-            $this->publishes([
-                 $this->getPath($type) => $configType,
-            ], $type);
-        }
+            var_dump([
+                $this->getPath($type) => $configType,
+            ]);
+        }*/
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('translate13.php'),
+        ], 'config');
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor'),
+        ], 'views');
+
+
     }
 
     /**
