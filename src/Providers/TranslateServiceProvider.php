@@ -60,10 +60,10 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
             ]);
         }*/
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('translate13.php'),
+            __DIR__.'/../../config/config.php' => config_path('translate13.php'),
         ], 'config');
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor'),
+            __DIR__.'/../../resources/views' => resource_path('views/vendor'),
         ], 'views');
 
 
