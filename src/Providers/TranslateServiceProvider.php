@@ -53,8 +53,9 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function publish(): void
     {
         foreach (self::MAP as $type =>$conf){
+            $configType = $this->getTypePath($type, $conf);
             $this->publishes([
-                 $this->getPath($type) => config_path($conf),
+                 $this->getPath($type) => $configType,
             ], $type);
         }
     }
@@ -92,5 +93,22 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     protected function getPath($type): string
     {
         return __DIR__ .$this->bindPath()[$type]??'';
+    }
+
+    /**
+     * @param string $type
+     * @param string $conf
+     * @return string
+     */
+    public function getTypePath(string $type, string $path): string
+    {
+        switch ($type) {
+            case 'config':
+                return config_path($path);
+            case 'views':
+                return resource_path($path);
+            default:
+                return '';
+        }
     }
 }
