@@ -13,12 +13,13 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      * @return void
      */
     const MAP =[
-      'config'=>[
-          '/../../config/config.php'
-      ],
-      'views'=>[
-          '/../resources/views'
-      ]
+      'config'=>'translate13.php',
+      'views'=> 'views/vendor/translate13'
+    ];
+
+    const PATH =[
+        'views/vendor/translate13',
+        '/../../config/config.php'
     ];
     public function register()
     {
@@ -51,16 +52,11 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     public function publish(): void
     {
-        foreach (self::MAP as $type){
-            dd($type);
+        foreach (self::MAP as $type =>$conf){
             $this->publishes([
-                __DIR__ . '/../../config/config.php' => config_path('translate13.php'),
-            ], 'config');
+                 $this->getPath($type) => config_path($conf),
+            ], $type);
         }
-        // Publish views
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/translate13'),
-        ], 'views');
     }
 
     /**
@@ -89,4 +85,12 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
         ];
     }
 
+    protected function bindPath(){
+        return array_combine(array_keys(self::MAP),self::PATH);
+    }
+
+    protected function getPath($type): string
+    {
+        return __DIR__ .$this->bindPath()[$type]??'';
+    }
 }
