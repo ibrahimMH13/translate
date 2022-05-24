@@ -1,4 +1,3 @@
-<x-app-layout>
 <table class="table-auto">
     <thead>
     <tr>
@@ -28,4 +27,3 @@
         </h2>
     @endforelse
 </table>
-</x-app-layout>

@@ -82,7 +82,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function loadResources(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'translate13');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'translate13');
         $this->registerRoutes();
     }
 
