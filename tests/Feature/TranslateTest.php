@@ -20,6 +20,7 @@ class TranslateTest extends TestCase
      * @test
      */
     public function list_page_with_empty_record_translation(){
+
         $res =  $this->get(route('translate.index'));
         $res->assertOk(); // Checks that response status was 200
         $res->assertSee('no there data available');
