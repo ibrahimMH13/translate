@@ -18,7 +18,7 @@ class Localization
     {
         if ($this->isIgnoreRoutePath($request->getPathInfo())) return $next($request);
         $locale = $request->segment(1);
-        if (!array_key_exists($locale, config('app.locales'))) {
+        if (!array_key_exists($locale, config('translate13.locales'))) {
             $segments = $request->segments();
             array_unshift($segments, config('app.fallback_locale'));
             return redirect()->to($this->buildRoutePath($segments, $request));
