@@ -14,7 +14,7 @@ class ConfigLocalTest extends TestCase
      */
 
     public function locales_config_is_exists(){
-        $this->assertIsArray(config('app.locales'));
+        $this->assertIsArray(config('translate13.locales'));
     }
 
 

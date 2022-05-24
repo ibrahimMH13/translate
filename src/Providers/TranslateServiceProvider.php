@@ -27,7 +27,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function register()
     {
        $this->registerLoader();
-       $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'app');
+       $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'translate13');
         $this->app->singleton('translator',function ($app){
            $loader = $app['translation.loader'];
            $local = $app['config']['app.local'];
@@ -96,9 +96,9 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     protected function routeConfiguration()
     {
         $prefix = config('translate13.locale_prefix')?app()->getLocale() .'/'.config('translate13.prefix'):config('translate13.prefix');
-        return [
+         return [
             'prefix' => $prefix,
-            'middleware' => config('translate13.middleware'),
+            'middleware' =>config('translate13.middleware'),
         ];
     }
 
