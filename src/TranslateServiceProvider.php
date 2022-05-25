@@ -2,6 +2,7 @@
 
 namespace Ibrhaim13\Translate;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 use function app;
 use function config;
@@ -24,18 +25,19 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
         'resources/views/vendor/translate13',
         '/../../config/config.php'
     ];
+
     public function register()
     {
-       $this->registerLoader();
-       $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'translate13');
-        $this->app->singleton('translator',function ($app){
-           $loader = $app['translation.loader'];
-           $local = $app['config']['app.local'];
-           $translate = new Translator($loader,$local);
-           $translate->setFallback($app['config']['app.fallback_locale']);
-           return $translate;
-       });
-
+        App::register(RouteTranslateServiceProvider::class);
+        $this->registerLoader();
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'translate13');
+        $this->app->singleton('translator', function ($app) {
+            $loader = $app['translation.loader'];
+            $local = $app['config']['app.local'];
+            $translate = new Translator($loader, $local);
+            $translate->setFallback($app['config']['app.fallback_locale']);
+            return $translate;
+        });
     }
 
     /**

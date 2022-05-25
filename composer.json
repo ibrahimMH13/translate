@@ -13,8 +13,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ibrhaim13\\Translate\\TranslateServiceProvider",
-                "Ibrhaim13\\Translate\\RouteTranslateServiceProvider"
+                "Ibrhaim13\\Translate\\TranslateServiceProvider"
             ]
         }
     },
