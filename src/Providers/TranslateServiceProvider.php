@@ -1,7 +1,11 @@
 <?php
 
-namespace Ibrhaim13\Translate;
+namespace Ibrhaim13\Translate\Providers;
+
+use Ibrhaim13\Translate\Http\Middleware\Web\Localization;
+use Ibrhaim13\Translate\Translator;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Router;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 use function app;
 use function config;
@@ -62,10 +66,10 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
             ]);
         }*/
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('translate13.php'),
+            __DIR__ . '/../config/config.php' => config_path('translate13.php'),
         ], 'translate');
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('vendor/translate'),
+            __DIR__ . '/../resources/views' => resource_path('vendor/translate'),
         ], 'translate');
 
 
@@ -77,7 +81,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function loadResources(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'translate');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'translate');
     }
 
     protected function routeConfiguration()
@@ -125,7 +129,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
             'as' => 'translate.',
             'middleware' =>config('translate13.middleware'),
         ], function () {
-            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         });
     }
 

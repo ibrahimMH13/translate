@@ -1,6 +1,6 @@
 <?php
 namespace Ibrhaim13\Translate\Tests;
-use Ibrhaim13\Translate\TranslateServiceProvider;
+use Ibrhaim13\Translate\Providers\TranslateServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as BasicTestCase;
 
