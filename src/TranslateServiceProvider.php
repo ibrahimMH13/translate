@@ -1,6 +1,7 @@
 <?php
 
 namespace Ibrhaim13\Translate;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 use function app;
 use function config;
@@ -59,6 +60,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
                 $this->getPath($type) => $configType,
             ]);
         }*/
+        $this->registerRoutes();
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('translate13.php'),
         ], 'translate');
@@ -112,4 +114,19 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
                 return '';
         }
     }
+
+    protected function registerRoutes()
+    {
+        $prefix = config('translate13.locale_prefix')?app()->getLocale() .'/'.config('translate13.prefix'):config('translate13.prefix');
+
+        Route::group([
+            'prefix' => $prefix,
+            'namespace' => 'Ibrhaim13\Translate\Http\Controllers',
+            'as' => 'translate.',
+            'middleware' =>config('translate13.middleware'),
+        ], function () {
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        });
+    }
+
 }
