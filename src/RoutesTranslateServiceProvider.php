@@ -50,11 +50,11 @@ class RoutesTranslateServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('vendor/translate'),
             ], 'views');
-        /*    if (!class_exists('CreatePostsTable')) {
+           if (!class_exists('CreatePostsTable')) {
                 $this->publishes([
                     __DIR__ . '/../database/migrations/create_translate_table.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_translate_table.php'),
                 ], 'migrations');
-            }*/
+            }
         }
     }
 
@@ -63,7 +63,7 @@ class RoutesTranslateServiceProvider extends ServiceProvider
      */
     public function loadResources(): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+      //  $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'translate');
     }
 
