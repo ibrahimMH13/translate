@@ -14,9 +14,11 @@ class RouteTranslateServiceProvider extends ServiceProvider
 {
     public function boot(){
         $this->registerRoutes();
+        /*
         $router = $this->app->make(Router::class);
         $router->pushMiddlewareToGroup('web', Localization::class);
         $router->pushMiddlewareToGroup('api', \Ibrhaim13\Translate\Http\Middleware\Api\Localization::class);
+        */
     }
 
     protected function registerRoutes()
