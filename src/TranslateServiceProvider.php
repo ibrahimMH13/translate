@@ -16,15 +16,6 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      *
      * @return void
      */
-    const MAP =[
-      'config'=>'translate13.php',
-      'views'=> 'views/vendor/translate13/'
-    ];
-
-    const PATH =[
-        'resources/views/vendor/translate13',
-        '/../../config/config.php'
-    ];
 
     public function register()
     {
@@ -56,13 +47,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     public function publish(): void
     {
-/*        foreach (self::MAP as $type =>$conf){
-            $configType = $this->getTypePath($type, $conf);
-            var_dump([
-                $this->getPath($type) => $configType,
-            ]);
-        }*/
-        $this->publishes([
+         $this->publishes([
             __DIR__ . '/../config/config.php' => config_path('translate13.php'),
         ], 'config');
         $this->publishes([
@@ -80,46 +65,9 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'translate');
     }
-
-    protected function routeConfiguration()
-    {
-        $prefix = config('translate13.locale_prefix')?app()->getLocale() .'/'.config('translate13.prefix'):config('translate13.prefix');
-         return [
-            'prefix' => $prefix,
-            'middleware' =>config('translate13.middleware'),
-        ];
-    }
-
-    protected function bindPath(){
-        return array_combine(array_keys(self::MAP),self::PATH);
-    }
-
-    protected function getPath($type): string
-    {
-        return __DIR__ .$this->bindPath()[$type]??'';
-    }
-
-    /**
-     * @param string $type
-     * @param string $conf
-     * @return string
-     */
-    public function getTypePath(string $type, string $path): string
-    {
-        switch ($type) {
-            case 'config':
-                return config_path($path);
-            case 'views':
-                return resource_path($path);
-            default:
-                return '';
-        }
-    }
-
     protected function registerRoutes()
     {
         $prefix = config('translate13.locale_prefix')?app()->getLocale() .'/'.config('translate13.prefix'):config('translate13.prefix');
-
         Route::group([
             'prefix' => $prefix,
             'namespace' => 'Ibrhaim13\Translate\Http\Controllers',
