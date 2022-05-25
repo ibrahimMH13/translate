@@ -126,7 +126,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
             'as' => 'translate.',
             'middleware' =>config('translate13.middleware'),
         ], function () {
-            $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });
     }
 
