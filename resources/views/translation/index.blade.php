@@ -1,4 +1,3 @@
-<x-app-layout>
 <table class="table-auto">
     <thead>
     <tr>
@@ -12,7 +11,14 @@
     <tr>
         <td>{{$record->key}}</td>
         <td>{{$record->language_code}}</td>
-        <td><a href="{{route('translate.edit',$record)}}">{{__('str_admin.edit')}}</a></td>
+        <td>
+            <a href="{{route('translate.edit',$record)}}">{{__('str_admin.edit')}}</a>
+            <form method="post" action="{{route('translate.destroy',$record)}}">
+                @method('DELETE')
+                @csrf
+                <button>{{__('str_admin.delete')}}</button>
+            </form>
+        </td>
     </tr>
     </tbody>
     @empty
@@ -21,4 +27,3 @@
         </h2>
     @endforelse
 </table>
-</x-app-layout>

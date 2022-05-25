@@ -12,14 +12,14 @@ class TranslateController extends Controller
 
     public function index()
     {
-       return view('translate13::translate.index')->with([
-           'translates'=>Translate::paganate(20)
+       return view('translate::translation.index')->with([
+           'translates'=>Translate::paginate(20)
        ]);
     }
 
     public function edit(Translate $translate)
     {
-        return view('translate13::translate.edit')->with(['translate'=>$translate]);
+        return view('translate13::translation.edit')->with(['translate'=>$translate]);
     }
 
     public function update(UpdateTranslateRequest $request, Translate $translate)
@@ -31,7 +31,7 @@ class TranslateController extends Controller
             }
         }
         $request->session()->flash('msg', ['success' => 'Updated was successful!']);
-        return redirect()->route('translate.index');
+        return redirect()->route('translation.index');
 
     }
 

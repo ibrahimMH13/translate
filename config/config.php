@@ -8,5 +8,5 @@ return [
     ],
     'locale_prefix'=>true,
     'prefix'=>'',
-    'middleware'=>'auth'
+    'middleware'=>['web']
 ];
