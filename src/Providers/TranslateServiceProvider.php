@@ -46,12 +46,6 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function boot()
     {
         $this->loadResources();
-        $router = $this->app->make(Router::class);
-        $router->pushMiddlewareToGroup('web', Localization::class);
-        $router->pushMiddlewareToGroup('api', \Ibrhaim13\Translate\Http\Middleware\Api\Localization::class);
-
-        if ($this->app->runningInConsole())
-            $this->publish();
 
     }
 
@@ -70,8 +64,8 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
             __DIR__.'/../../config/config.php' => config_path('translate13.php'),
         ], 'config');
         $this->publishes([
-            __DIR__.'/../../resources/views' => resource_path('views/translate13'),
-        ], 'views');
+            __DIR__.'/../../resources/views' => $this->app->resourcePath('views/vendor/translate'),
+        ], 'translate-views');
 
 
     }
@@ -82,15 +76,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function loadResources(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'translate13');
-        $this->registerRoutes();
-    }
-
-    protected function registerRoutes()
-    {
-        Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
-        });
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'translate');
     }
 
     protected function routeConfiguration()

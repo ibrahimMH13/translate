@@ -2,6 +2,8 @@
 
 namespace Ibrhaim13\Translate\Providers;
 
+use Ibrhaim13\Translate\Http\Middleware\Web\Localization;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +12,9 @@ class RouteTranslateServiceProvider extends ServiceProvider
 {
     public function boot(){
         $this->registerRoutes();
+        $router = $this->app->make(Router::class);
+        $router->pushMiddlewareToGroup('web', Localization::class);
+        $router->pushMiddlewareToGroup('api', \Ibrhaim13\Translate\Http\Middleware\Api\Localization::class);
     }
 
     protected function registerRoutes()
