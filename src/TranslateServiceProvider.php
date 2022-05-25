@@ -45,6 +45,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
      */
     public function boot()
     {
+        $this->registerRoutes();
         $this->loadResources();
 
     }
@@ -60,7 +61,6 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
                 $this->getPath($type) => $configType,
             ]);
         }*/
-        $this->registerRoutes();
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('translate13.php'),
         ], 'translate');
