@@ -1,11 +1,13 @@
 <?php
 
-namespace Ibrhaim13\Translate\Providers;
+namespace Ibrhaim13\Translate;
 
 use Ibrhaim13\Translate\Http\Middleware\Web\Localization;
 use Illuminate\Routing\Router;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+use function app;
+use function config;
 
 
 class RouteTranslateServiceProvider extends ServiceProvider
@@ -27,7 +29,7 @@ class RouteTranslateServiceProvider extends ServiceProvider
                 'as' => 'translate.',
                 'middleware' =>config('translate13.middleware'),
             ], function () {
-                $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+                $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
             });
     }
 
