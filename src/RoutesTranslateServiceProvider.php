@@ -52,7 +52,7 @@ class RoutesTranslateServiceProvider extends ServiceProvider
             ], 'views');
             if (!class_exists('CreatePostsTable')) {
                 $this->publishes([
-                    __DIR__ . '/../database/migrations/create_translate_table.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_translate_table.php'),
+                    __DIR__ . '/../database/migrations/create_translate_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_translate_table.php'),
                 ], 'migrations');
             }
         }
