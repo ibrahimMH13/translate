@@ -9,16 +9,6 @@ use function config;
 
 class RoutesTranslateServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-
-    public function register()
-    {
-
-    }
 
     /**
      * Bootstrap services.
