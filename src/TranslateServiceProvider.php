@@ -1,8 +1,6 @@
 <?php
 
 namespace Ibrhaim13\Translate;
-
-use Illuminate\Support\Facades\App;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 use function app;
 use function config;
@@ -28,7 +26,6 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
 
     public function register()
     {
-        App::register(RouteTranslateServiceProvider::class);
         $this->registerLoader();
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'translate13');
         $this->app->singleton('translator', function ($app) {
