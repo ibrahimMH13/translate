@@ -47,7 +47,7 @@ class RoutesTranslateServiceProvider extends ServiceProvider
             __DIR__ . '/../config/config.php' => config_path('translate13.php'),
         ], 'config');
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('vendor/translate13'),
+            __DIR__ . '/../resources/views' => resource_path('vendor/translate'),
         ], 'views');
     }
 

@@ -12,7 +12,7 @@ class TranslateController extends Controller
 
     public function index()
     {
-       return view('translate13::translation.index')->with([
+       return view('translate::translation.index')->with([
            'translates'=>Translate::paginate(20)
        ]);
     }
