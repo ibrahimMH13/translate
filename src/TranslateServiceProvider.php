@@ -1,11 +1,8 @@
 <?php
 
-namespace Ibrhaim13\Translate\Providers;
+namespace Ibrhaim13\Translate;
 
-use Ibrhaim13\Translate\Http\Middleware\Web\Localization;
-use Ibrhaim13\Translate\Translator;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Routing\Router;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
 use function app;
 use function config;
