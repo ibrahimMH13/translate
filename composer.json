@@ -12,7 +12,10 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "providers": [
+                "Ibrhaim13\\Translate\\TranslateServiceProvider",
+                "Ibrhaim13\\Translate\\RouteTranslateServiceProvider"
+            ]
         }
     },
     "authors": [
