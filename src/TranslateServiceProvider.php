@@ -2,12 +2,7 @@
 
 namespace Ibrhaim13\Translate;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Translation\TranslationServiceProvider as BaseTranslationServiceProvider;
-use function app;
-use function config;
-use function config_path;
-use function resource_path;
 
 class TranslateServiceProvider extends BaseTranslationServiceProvider
 {
