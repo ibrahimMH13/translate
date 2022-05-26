@@ -5,12 +5,12 @@
             {{ __('str_admin.translate') }}
         </h2>
     </x-slot>
-    <div class="py-12 max-w-6xl mx-auto flex justify-end ">
+    <div class="max-w-6xl mx-auto flex justify-end ">
         <div class="m-5 p-5">
             <a href="{{route('translate.generate')}}" class="p-3 text-green-600 font-weight-bolder">{{__('str_admin.Generate Translate')}}</a>
         </div>
     </div>
-    <div class="py-12">
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="m-auto">
