@@ -25,7 +25,7 @@ class RoutesTranslateServiceProvider extends ServiceProvider
 
     protected function registerRoutes()
     {
-        $prefix = config('translate13.locale_prefix') ? app()->getLocale() . '/' . config('translate13.prefix') : config('translate13.prefix');
+        $prefix = config('translate13.locale_prefix') ? config('translate13.prefix')?Localization::routePrefix() . '/' . config('translate13.prefix'):Localization::routePrefix() : config('translate13.prefix');
         Route::group([
             'prefix' => $prefix,
             'namespace' => 'Ibrhaim13\Translate\Http\Controllers',
