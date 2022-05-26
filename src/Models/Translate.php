@@ -29,7 +29,7 @@ class Translate extends Model
     }
 
     public function getTranslateParams(){
-        $locales = config('app.locales');
+        $locales = config('translate13.locales');
         foreach ($locales as $code => &$locale) {
             /** @var  $translate */
             $locale = [
