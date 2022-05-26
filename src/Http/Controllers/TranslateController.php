@@ -19,7 +19,15 @@ class TranslateController extends Controller
 
     public function edit(Translate $translate)
     {
-        return view('translate::edit')->with(['translate'=>$translate]);
+        $locales = config('app.locales');
+        list($keyNamespace, $keyGroup, $keyItem) = app('translator')->parseKey($translate->key);
+        return view('translate::edit')->with([
+            'translate'=>$translate,
+            'locales' => $locales,
+            'keyNamespace' => $keyNamespace,
+            'keyGroup' => $keyGroup,
+            'keyItem' => $keyItem,
+        ]);
     }
 
     public function update(UpdateTranslateRequest $request, Translate $translate)
