@@ -31,7 +31,6 @@ class RoutesTranslateServiceProvider extends ServiceProvider
         Route::group([
             'prefix' => $prefix,
             'namespace' => 'Ibrhaim13\Translate\Http\Controllers',
-            'as' => 'translate.',
             'middleware' => config('translate13.middleware'),
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
@@ -48,7 +47,7 @@ class RoutesTranslateServiceProvider extends ServiceProvider
                 __DIR__ . '/../config/config.php' => config_path('translate13.php'),
             ], 'config');
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('vendor/translate'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/translate'),
             ], 'views');
            if (!class_exists('CreatePostsTable')) {
                 $this->publishes([
