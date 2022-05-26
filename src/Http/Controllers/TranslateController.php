@@ -37,9 +37,8 @@ class TranslateController extends Controller
                 Localization::addKeyToTranslation($translate->key, $value, $langCode);
             }
         }
-        $request->session()->flash('msg', ['success' => 'Updated was successful!']);
+        $request->session()->flash('msg', ['success' => 'str_public.Updated was successful!']);
         return redirect()->route('translate.index');
-
     }
 
     public function destroy(Translate $translate)
