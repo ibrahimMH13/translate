@@ -34,6 +34,7 @@ class TranslateController extends Controller
         $values = $request->get('value');
         if ($translate && $translate->id && $values && is_array($values)) {
             foreach ($values as $langCode => $value) {
+                if (empty($value)) continue;
                 Localization::addKeyToTranslation($translate->key, $value, $langCode);
             }
         }
