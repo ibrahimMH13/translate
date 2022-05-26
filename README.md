@@ -12,7 +12,7 @@ Install via composer
 composer require ibrhaim13/translate
 ```
 ## Publish Package 
-will publish Package Competent translate13 (config file), Migration file, view,  
+will publish Package Components translate13 (config file), Migration file, view,  
 ```bash
 php artisan vendor:publish --force --tag=translate13
 ```
