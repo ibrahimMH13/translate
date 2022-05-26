@@ -6,7 +6,7 @@ ibrhaim13/translate is laravel translation package for static text that is simpl
 
 ## Official Documentation
 
-## Install (Laravel)
+## Install (Laravel ^8.0, ^9.0 )
 Install via composer
 ```bash
 composer require ibrhaim13/translate
