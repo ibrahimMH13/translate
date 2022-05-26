@@ -12,14 +12,14 @@ class TranslateController extends Controller
 
     public function index()
     {
-       return view('translate::translation.index')->with([
+       return view('translate::index')->with([
            'translates'=>Translate::paginate(20)
        ]);
     }
 
     public function edit(Translate $translate)
     {
-        return view('translate::translation.edit')->with(['translate'=>$translate]);
+        return view('translate::edit')->with(['translate'=>$translate]);
     }
 
     public function update(UpdateTranslateRequest $request, Translate $translate)
