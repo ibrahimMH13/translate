@@ -1,6 +1,7 @@
 {
     "name": "ibrhaim13/translate",
     "description": "laravel translate package",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Ibrhaim13\\Translate\\": "src/",
