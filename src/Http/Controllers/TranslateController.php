@@ -19,7 +19,7 @@ class TranslateController extends Controller
 
     public function edit(Translate $translate)
     {
-        return view('translate13::translation.edit')->with(['translate'=>$translate]);
+        return view('translate::translation.edit')->with(['translate'=>$translate]);
     }
 
     public function update(UpdateTranslateRequest $request, Translate $translate)
@@ -31,7 +31,7 @@ class TranslateController extends Controller
             }
         }
         $request->session()->flash('msg', ['success' => 'Updated was successful!']);
-        return redirect()->route('translation.index');
+        return redirect()->route('translate.index');
 
     }
 
@@ -44,7 +44,7 @@ class TranslateController extends Controller
     public function generate(): RedirectResponse
     {
             Localization::exportTranslations();
-            request()->session()->flash('msg',['success'=>'Generate  Translation File was successful!']);
+            request()->session()->flash('msg',['success'=>__('str_public.Generate Translation File was successful!')]);
             return redirect()->back();
     }
 
