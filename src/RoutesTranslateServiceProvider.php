@@ -43,14 +43,14 @@ class RoutesTranslateServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/config.php' => config_path('translate13.php'),
-            ], 'config');
+            ], 'translate13');
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('views/vendor/translate'),
-            ], 'views');
+            ], 'translate13');
            if (!class_exists('CreatePostsTable')) {
                 $this->publishes([
                     __DIR__ . '/../database/migrations/create_translate_table.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_translate_table.php'),
-                ], 'migrations');
+                ], 'translate13');
             }
         }
     }
