@@ -16,7 +16,7 @@
                         <form method="post" action="{{route('translate.update',$translate)}}">
                             @csrf
                             @method('PUT')
-                            @include('translate.filed')
+                            @include('vendor.translate.filed')
                             <div class="w-3/5 mt-5 m-auto">
                                 <div class="col-md-8 offset-md-2">
                                     <button type="submit" class="p-3 bg-green-700 text-white capitalize m-3">

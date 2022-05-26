@@ -15,17 +15,6 @@
 @endpush
 
 @if(isset($translate))
-    <?php
-    $locales = config('app.locales');
-    foreach ($locales as $code => &$locale) {
-        /** @var  $translate */
-        $locale = [
-            'title' => $locale,
-            'translation' => \App\Models\Translate::where('key', $translate->key)->where('language_code', $code)->first()
-        ];
-    }
-    list($keyNamespace, $keyGroup, $keyItem) = app('translator')->parseKey($translate->key);
-    ?>
     <div class="bg-green-500 pr-4 pl-4 pt-4 text-white"><strong class="text-gray-700">Group </strong> : {{ $keyGroup }}</div>
     <div class="bg-green-500 pr-4 pl-4 pb-4 text-white"><strong class="text-gray-700">Key </strong> : {{ $keyItem }}</div>
     <hr>
