@@ -1,19 +1,3 @@
-@push('custom-script')
-    <script>
-        function enableTranslation(code) {
-            $('#value-' + code).removeAttr('disabled');
-            $('#enable-translation-' + code).hide();
-            $('#disable-translation-' + code).show();
-        }
-
-        function disableTranslation(code) {
-            $('#value-' + code).attr('disabled', 'disabled');
-            $('#enable-translation-' + code).show();
-            $('#disable-translation-' + code).hide();
-        }
-    </script>
-@endpush
-
 @if(isset($translate))
     <div class="bg-green-500 pr-4 pl-4 pt-4 text-white"><strong class="text-gray-700">Group </strong> : {{ $keyGroup }}</div>
     <div class="bg-green-500 pr-4 pl-4 pb-4 text-white"><strong class="text-gray-700">Key </strong> : {{ $keyItem }}</div>
@@ -35,10 +19,16 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-md-8">
-                <button type="button" class="btn btn-link text-green-700" id="enable-translation-{{$code}}" onclick="enableTranslation('{{$code}}');">Enable</button>
-                <button type="button" class="btn btn-link text-red-700" id="disable-translation-{{$code}}" onclick="disableTranslation('{{$code}}');">Disable</button>
-            </div>
+            @if(false)
+                <div class="col-md-8">
+                    <button type="button" class="btn btn-link text-green-700" id="enable-translation-{{$code}}"
+                            onclick="enableTranslation('{{$code}}');">Enable
+                    </button>
+                    <button type="button" class="btn btn-link text-red-700" id="disable-translation-{{$code}}"
+                            onclick="disableTranslation('{{$code}}');">Disable
+                    </button>
+                </div>
+            @endif
         </div>
     @endforeach
 @endif
