@@ -19,8 +19,7 @@ class TranslateController extends Controller
 
     public function edit(Translate $translate)
     {
-        $locales = config('app.locales');
-        list($keyNamespace, $keyGroup, $keyItem) = app('translator')->parseKey($translate->key);
+        list($locales, $keyNamespace, $keyGroup, $keyItem) = $translate->getTranslateParams();
         return view('translate::edit')->with([
             'translate'=>$translate,
             'locales' => $locales,
@@ -55,5 +54,4 @@ class TranslateController extends Controller
             request()->session()->flash('msg',['success'=>__('str_public.Generate Translation File was successful!')]);
             return redirect()->back();
     }
-
 }
