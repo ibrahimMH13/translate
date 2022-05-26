@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use function app;
 use function config;
+use Illuminate\Routing\Router;
 
 class RoutesTranslateServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,8 @@ class RoutesTranslateServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $router = $this->app->make(Router::class);
+        $router->pushMiddlewareToGroup('web', \Ibrhaim13\Translate\Http\Middleware\Web\Localization::class);
         $this->registerRoutes();
         $this->loadResources();
         if ($this->app->runningInConsole()) {
