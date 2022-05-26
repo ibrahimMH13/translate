@@ -29,7 +29,7 @@
         "phpunit/phpunit": "^9.5"
     },
     "require": {
-        "php": "^8.*|^7.4",
-        "torann/geoip": "^3.0|1.*"
+        "php": "^7.3|^8.0",
+        "torann/geoip": "^1.0|^3.0"
     }
 }
