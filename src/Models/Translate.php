@@ -22,6 +22,7 @@ class Translate extends Model
     public static array $groups = [
         'str_public',
         'str_admin',
+        'st_vue',
     ];
 
     protected static function newFactory(){
