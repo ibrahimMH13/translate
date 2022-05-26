@@ -33,7 +33,7 @@ class TestCase extends BasicTestCase
             'prefix'   => '',
         ]);
         // run the up() method of that migration class
-        (new \TranslateTable)->up();
+        (new \CreateTranslateTable)->up();
 
     }
 

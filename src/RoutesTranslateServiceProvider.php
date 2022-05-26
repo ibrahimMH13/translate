@@ -10,14 +10,9 @@ use function config;
 class RoutesTranslateServiceProvider extends ServiceProvider
 {
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
+
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'translate13');
         $this->registerRoutes();
         $this->loadResources();
         if ($this->app->runningInConsole()) {
