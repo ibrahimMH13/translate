@@ -1,6 +1,7 @@
 <?php
 namespace Ibrhaim13\Translate\Tests;
 use Ibrhaim13\Translate\TranslateServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Orchestra\Testbench\TestCase as BasicTestCase;
@@ -8,7 +9,6 @@ use Orchestra\Testbench\TestCase as BasicTestCase;
 class TestCase extends BasicTestCase
 {
     use RefreshDatabase,WithFaker;
-    protected $loadEnvironmentVariables = true;
     public function setUp(): void
     {
         parent::setUp();
@@ -19,7 +19,7 @@ class TestCase extends BasicTestCase
     {
         return [
             TranslateServiceProvider::class,
-        ];
+         ];
     }
 
     protected function getEnvironmentSetUp($app)

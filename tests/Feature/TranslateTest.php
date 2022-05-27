@@ -15,17 +15,6 @@ class TranslateTest extends TestCase
      */
     public function example_test(){
         $this->assertTrue(true);
-    }
+     }
 
-    /**
-     * @test
-     */
-
-/*    public function list_page_with_empty_record_translation(){+
-
-        $res =  $this->get('/translate/en');
-        dd($res);
-        $res->assertOk(); // Checks that response status was 200
-        $res->assertSee('no there data available');
-    }*/
-}
+ }
