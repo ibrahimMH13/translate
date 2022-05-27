@@ -15,11 +15,11 @@ class Localization
         if (empty($locale) || !is_string($locale)) {
             $locale = request()->segment(1);
         }
-        if (array_key_exists($locale, config('app.locales'))) {
+        if (array_key_exists($locale, config('translate13.locales'))) {
             $currentLocale = $locale;
         } else {
             $locale = null;
-            $currentLocale = config('app.fallback_locale');
+            $currentLocale = config('translate13.fallback_locale');
         }
 
         App::setLocale($currentLocale);
@@ -102,7 +102,7 @@ class Localization
     {
 
         $languages = array();
-        foreach (config('app.locales') as $code => $locale) {
+        foreach (config('translate13.locales') as $code => $locale) {
 
             $translations = Translate::where('language_code', $code)->get();
 
@@ -194,16 +194,16 @@ class Localization
         $requestLocale = request()->segment(1);
         if (strpos($requestLocale, '-')) {
             $url = explode('-', $requestLocale);
-            $lang = array_key_exists($url[1], config('app.locales')) ? $url[1] : '';
+            $lang = array_key_exists($url[1], config('translate13.locales')) ? $url[1] : '';
         } else {
             if ($requestLocale) {
-                $lang = array_key_exists($requestLocale, config('app.locales')) ? $requestLocale : '';
+                $lang = array_key_exists($requestLocale, config('translate13.locales')) ? $requestLocale : '';
             } else {
                 $getRequestGeoCountry = app()->make(GetRequestGeo::class);
                 $geo = $getRequestGeoCountry->process();
                 $countryCode = $geo['country_code'];
                 if ($countryCode == 'US') $lang = 'en';
-                else $lang = array_key_exists($requestLocale, config('app.locales')) ? $requestLocale : '';
+                else $lang = array_key_exists($requestLocale, config('translate13.locales')) ? $requestLocale : '';
             }
         }
 

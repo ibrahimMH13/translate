@@ -12,14 +12,21 @@ class TranslateController extends Controller
 
     public function index()
     {
-       return view('translate::translation.index')->with([
+       return view('translate::index')->with([
            'translates'=>Translate::paginate(20)
        ]);
     }
 
     public function edit(Translate $translate)
     {
-        return view('translate13::translation.edit')->with(['translate'=>$translate]);
+        list($locales, $keyNamespace, $keyGroup, $keyItem) = $translate->getTranslateParams();
+        return view('translate::edit')->with([
+            'translate'=>$translate,
+            'locales' => $locales,
+            'keyNamespace' => $keyNamespace,
+            'keyGroup' => $keyGroup,
+            'keyItem' => $keyItem,
+        ]);
     }
 
     public function update(UpdateTranslateRequest $request, Translate $translate)
@@ -27,12 +34,12 @@ class TranslateController extends Controller
         $values = $request->get('value');
         if ($translate && $translate->id && $values && is_array($values)) {
             foreach ($values as $langCode => $value) {
+                if (empty($value)) continue;
                 Localization::addKeyToTranslation($translate->key, $value, $langCode);
             }
         }
-        $request->session()->flash('msg', ['success' => 'Updated was successful!']);
-        return redirect()->route('translation.index');
-
+        $request->session()->flash('msg', ['success' => 'str_public.Updated was successful!']);
+        return redirect()->route('translate.index');
     }
 
     public function destroy(Translate $translate)
@@ -44,8 +51,7 @@ class TranslateController extends Controller
     public function generate(): RedirectResponse
     {
             Localization::exportTranslations();
-            request()->session()->flash('msg',['success'=>'Generate  Translation File was successful!']);
+            request()->session()->flash('msg',['success'=>__('str_public.Generate Translation File was successful!')]);
             return redirect()->back();
     }
-
 }

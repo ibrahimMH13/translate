@@ -26,14 +26,15 @@ class TestCase extends BasicTestCase
     {
         // import the CreatePostsTable class from the migration
         include_once __DIR__ . '/../database/migrations/create_translate_table.php';
-        // run the up() method of that migration class
         $app['config']->set('database.default', 'test_translate');
         $app['config']->set('database.connections.test_translate', [
             'driver'   => 'sqlite',
             'database' => ':memory:',
             'prefix'   => '',
         ]);
-        (new \TranslateTable)->up();
+        // run the up() method of that migration class
+        (new \CreateTranslateTable)->up();
+
     }
     protected function generate_fake_key(): string
     {

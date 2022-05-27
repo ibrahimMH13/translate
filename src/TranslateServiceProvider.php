@@ -15,6 +15,7 @@ class TranslateServiceProvider extends BaseTranslationServiceProvider
     public function register()
     {
         $this->registerLoader();
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'translate13');
         $this->app->singleton('translator', function ($app) {
             $loader = $app['translation.loader'];
             $local = $app['config']['app.local'];

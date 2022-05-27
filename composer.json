@@ -1,6 +1,7 @@
 {
     "name": "ibrhaim13/translate",
     "description": "laravel translate package",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Ibrhaim13\\Translate\\": "src/",
@@ -29,6 +30,8 @@
         "phpunit/phpunit": "^9.5"
     },
     "require": {
-        "torann/geoip": "^3.0"
+        "php": "^7.3|^8.0",
+        "laravel/framework": "^8.0|^9.0",
+        "torann/geoip": "^1.0|^3.0"
     }
 }

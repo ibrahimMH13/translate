@@ -22,10 +22,24 @@ class Translate extends Model
     public static array $groups = [
         'str_public',
         'str_admin',
+        'st_vue',
     ];
 
     protected static function newFactory(){
         return  TranslateFactory::new();
+    }
+
+    public function getTranslateParams(){
+        $locales = config('translate13.locales');
+        foreach ($locales as $code => &$locale) {
+            /** @var  $translate */
+            $locale = [
+                'title' => $locale,
+                'translation' => self::where('key', $this->key)->where('language_code', $code)->first()
+            ];
+        }
+        list($keyNamespace, $keyGroup, $keyItem) = app('translator')->parseKey($this->key);
+        return array($locales, $keyNamespace, $keyGroup, $keyItem);
     }
 
 }
