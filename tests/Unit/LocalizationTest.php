@@ -70,7 +70,7 @@ class LocalizationTest extends TestCase
      */
     public function test_generate_translation(){
 
-        $languages=config('app.locales');
+        $languages=config('translate13.locales');
        $this->assertIsArray($languages);
         $fakeKey = $this->generate_fake_key();
         $prefix = Translate::$groups;

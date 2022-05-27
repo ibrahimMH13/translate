@@ -34,8 +34,7 @@ class TestCase extends BasicTestCase
         ]);
         // run the up() method of that migration class
         (new \CreateTranslateTable)->up();
-
-    }
+      }
     protected function generate_fake_key(): string
     {
        return str_replace(' ','_', implode(' ',$this->faker->words(3)));
