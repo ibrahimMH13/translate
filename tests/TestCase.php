@@ -1,25 +1,25 @@
 <?php
 namespace Ibrhaim13\Translate\Tests;
 use Ibrhaim13\Translate\TranslateServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Orchestra\Testbench\TestCase as BasicTestCase;
 
 class TestCase extends BasicTestCase
 {
-    use RefreshDatabase;
-    protected $loadEnvironmentVariables = true;
-
+    use RefreshDatabase,WithFaker;
     public function setUp(): void
     {
         parent::setUp();
-        // additional setup
+        $this->setUpFaker();
     }
 
     protected function getPackageProviders($app)
     {
         return [
             TranslateServiceProvider::class,
-        ];
+         ];
     }
 
     protected function getEnvironmentSetUp($app)
@@ -34,7 +34,9 @@ class TestCase extends BasicTestCase
         ]);
         // run the up() method of that migration class
         (new \CreateTranslateTable)->up();
-
+      }
+    protected function generate_fake_key(): string
+    {
+       return str_replace(' ','_', implode(' ',$this->faker->words(3)));
     }
-
 }

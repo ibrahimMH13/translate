@@ -24,8 +24,8 @@ class ConfigLocalTest extends TestCase
 
     public function locals_config_is_not_exists()
     {
-        Config::set('app.locales', []);
-        $appLocal = Config::get('app.locales');
+        Config::set('translate13.locales', []);
+        $appLocal = Config::get('translate13.locales');
         $this->assertEmpty($appLocal);
         $this->assertEquals(Config::get('app.fallback_locale'),$this->app->getLocale());
     }
