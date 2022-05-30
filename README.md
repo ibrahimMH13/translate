@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ibrhaim13/translate is laravel translation package for static text that is simple,dynamic  and enjoyable to use.
+ibrhaim13/mdb-translate is laravel translation package using mongodb for static text that is simple,dynamic  and enjoyable to use.
 
 ## Official Documentation
 

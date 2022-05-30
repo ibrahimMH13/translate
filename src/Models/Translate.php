@@ -3,7 +3,7 @@
 namespace Ibrhaim13\Translate\Models;
 
 use Ibrhaim13\Translate\Database\Factories\TranslateFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Translate extends Model
 
