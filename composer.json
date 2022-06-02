@@ -1,6 +1,6 @@
 {
     "name": "ibrhaim13/mongodb-translate",
-    "description": "laravel static text translate package using mongodb for laravel 7 up",
+    "description": "laravel static text translate package  for laravel 7 up",
     "keywords": ["laravel", "admin", "translate", "static","mongodb"],
     "license": "MIT",
     "autoload": {
