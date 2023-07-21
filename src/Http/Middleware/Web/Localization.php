@@ -36,9 +36,7 @@ class Localization
 
     private function getIgnorableRoutesPatterns():array
     {
-        return [
-           // '/oauth/i'
-        ];
+        return config('translate13.ignorable_routes_patterns');
     }
 
     /**

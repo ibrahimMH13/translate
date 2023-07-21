@@ -8,5 +8,6 @@ return [
     ],
     'locale_prefix'=>true,
     'prefix'=>'',
-    'middleware'=>['web']
+    'middleware'=>['web'],
+    'ignorable_routes_patterns' =>[],
 ];
