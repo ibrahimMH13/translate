@@ -34,6 +34,6 @@
         "php": "^8.0",
         "laravel/framework": "^10.0",
         "torann/geoip": "^1.0|^3.0",
-        "jenssegers/mongodb": "^3.9"
+        "jenssegers/mongodb": "*"
     }
 }
