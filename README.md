@@ -6,7 +6,7 @@ ibrhaim13/mdb-translate is laravel translation package using mongodb for static 
 
 ## Official Documentation
 
-## Install (Laravel ^8.0, ^9.0 )
+## Install (Laravel ^8.0)
 Install via composer
 ```bash
 composer require ibrhaim13/translate
