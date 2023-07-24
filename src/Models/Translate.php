@@ -8,6 +8,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class Translate extends Model
 
 {
+    protected $connection = 'mongodb';
     protected $fillable=[
       'key',
       'value',
